@@ -60,7 +60,9 @@ def bs_executive_statement(page, sExecutiveStatement) :
     sleep(2)
     # page.locator("bsp-line").nth(2).click()
     page.locator("li:nth-child(2) > .objectInputs > div:nth-child(3) > div:nth-child(2) > .ProseMirrorContainer > .ProseMirror").fill(f"{sExecutiveStatement}")
+    sleep(1)
     page.locator("li:nth-child(2) > .objectInputs > div:nth-child(3) > div:nth-child(2) > .ProseMirrorContainer > .ProseMirror").press("ControlOrMeta+Shift+ArrowUp")
+    sleep(1)
     page.get_by_role("link", name="H4").nth(2).click()
 
 # Inserts the IMAGE on the MAIN PAGE
@@ -187,6 +189,7 @@ def bs_contact_link(page) :
 
     # Step 2: Expand Aside/Below if the Rich Text card is not visible
     page.mouse.wheel(0,500) # scrolls so it can find the next locator
+    sleep(2)
     rich_text = page.get_by_text("Rich Text: (RichText Card)")
     if not rich_text.is_visible():
         page.get_by_role("heading", name="Aside/Below keyboard_arrow_up").locator("div").click()
@@ -194,9 +197,11 @@ def bs_contact_link(page) :
 
     # Step 3: Open Rich Text card
     page.get_by_text("Rich Text: (RichText Card)").click(timeout=10000)
+    sleep(1)
 
     # Step 4: Click Contact Us link and open editor
     page.mouse.wheel(0,500) # scrolls so it can find the next locator
+    sleep(1)
     page.get_by_role("link", name="Contact Us").click(timeout=10000)
     page.locator(".ProsemirrorEnhancementMenu-container-button").first.click(timeout=10000)
     sleep(1)
