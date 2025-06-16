@@ -1,12 +1,12 @@
 INSTRUCTIONS:
 
 Download VS CODE: https://code.visualstudio.com/download
-Download repository
-Place folder where you want it
+Download repository 
+Place folder where you want it (and where you will never move it)
 
-FROM TERMINAL:
-- import playwright
-- import FPDF
+FROM TERMINAL (go to terminal in the top menu bar of your computer if mac):
+- import playwright (copy and paste "pip install playwright" into terminal)
+- import FPDF (copy and paste "pip install pfdf" into terminal)
 
 CHANGE FOLDER/FILE DESTINATIONs:
 - disclosures_folder (main.py line 34)
@@ -24,3 +24,11 @@ Put disclosures into disclosures folder and run it
 LOGGING IN:
 - the first time launching this, you will need to sign in to the FirstIgnite account manually
 - for BRIGHTSPOT, it may have you do duo/confirm text message. You should only have to do that once.
+
+MAKE SURE:
+- make sure that you installed the repository with correct version of python
+- use "python -m venv .venv"
+- then "source .venv/bin/activate"
+- use "which python" to make sure that you have the correct version dowloaded. It should say "(.venv)" at the beginning of the line of code
+- install playwright again using "pip install playwright" then "playwright install"
+- then install fpdf with "pip install fpdf"
