@@ -43,8 +43,8 @@ def create_pdf(sTitle, sCleanID, sExectutiveStatement, sDescription, lstAdvantag
 
     # Register Noto Sans Font
     # NOTE: the bullet points use "Arial" 
-    pdf.add_font("NotoSans", "", "C:/Users/justi/Desktop/Desktop/Justin/Coding Projects/Automation/Fonts/NotoSans-Regular.ttf",  uni=True)
-    pdf.add_font("NotoSans", "B", "C:/Users/justi/Desktop/Desktop/Justin/Coding Projects/Automation/Fonts/NotoSans-Bold.ttf", uni=True)  # Bold version
+    pdf.add_font("NotoSans", "", "/Users/willy/Desktop/TTO/web_dev_automation-main/Noto_Sans/static/NotoSans-Regular.ttf",  uni=True)
+    pdf.add_font("NotoSans", "B", "/Users/willy/Desktop/TTO/web_dev_automation-main/Noto_Sans/static/NotoSans-Bold.ttf", uni=True)  # Bold version
     
 
     # pulls and assigns variables
@@ -57,7 +57,7 @@ def create_pdf(sTitle, sCleanID, sExectutiveStatement, sDescription, lstAdvantag
     lstMarketApplications = lstMarketApplications
 
     # Insert banner image at the top
-    banner_path = "C:/Users/justi/Desktop/Desktop/Justin/Coding Projects/Automation/Images/banner.png"
+    banner_path = "/Users/willy/Desktop/TTO/web_dev_automation-main/Images/banner.png"
     pdf.image(banner_path, x=0, y=0, w=210)  # Adjust width to fit A4 page
     
     # Set overlay text on the banner
@@ -111,7 +111,7 @@ def create_pdf(sTitle, sCleanID, sExectutiveStatement, sDescription, lstAdvantag
     add_bulleted_section(pdf, "Market Applications:", lstMarketApplications)
 
     # Insert footer banner image at the bottom
-    footer_banner_path = "C:/Users/justi/Desktop/Desktop/Justin/Coding Projects/Automation/Images/footer banner.png"  # Ensure the correct path
+    footer_banner_path = "/Users/willy/Desktop/TTO/web_dev_automation-main/Images/footer banner.png"  # Ensure the correct path
     footer_height = 20
     pdf.image(footer_banner_path, x=0, y= 290 - footer_height, w=210)  # Adjust width to fit A4 page
 
@@ -120,7 +120,7 @@ def create_pdf(sTitle, sCleanID, sExectutiveStatement, sDescription, lstAdvantag
 
     # Exports the sell sheet into the Exported Sell Sheet folder
     # the folder to export to
-    export_folder = r"C:\Users\justi\Desktop\Desktop\Justin\Coding Projects\Automation\Exported Sell Sheets"
+    export_folder = r"/Users/willy/Desktop/TTO/web_dev_automation-main/Exported Sell Sheets"
     os.makedirs(export_folder, exist_ok=True)  # Ensure the folder exists
 
     # Combine folder path with output file name
