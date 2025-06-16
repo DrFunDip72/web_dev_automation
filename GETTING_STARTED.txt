@@ -4,6 +4,9 @@ Download VS CODE: https://code.visualstudio.com/download
 Download repository 
 Place folder where you want it (and where you will never move it)
 
+Download noto sans from google fonts:
+https://fonts.google.com/noto/specimen/Noto+Sans?query=noto+sans
+
 FROM TERMINAL (go to terminal in the top menu bar of your computer if mac):
 - import playwright (copy and paste "pip install playwright" into terminal)
 - import FPDF (copy and paste "pip install pfdf" into terminal)
