@@ -56,7 +56,7 @@ def bs_title_techID(page, sTitle, sCleanID) :
 # Inserts the EXECUTIVE STATEMENT
 def bs_executive_statement(page, sExecutiveStatement) :
     page.locator(".is-collapsed > .repeatableLabel").first.click()
-    page.mouse.wheel(0,500) # scrolls so it can find the next locator
+    page.mouse.wheel(0,200) # scrolls so it can find the next locator
     sleep(2)
     # page.locator("bsp-line").nth(2).click()
     page.locator("li:nth-child(2) > .objectInputs > div:nth-child(3) > div:nth-child(2) > .ProseMirrorContainer > .ProseMirror").fill(f"{sExecutiveStatement}")
@@ -139,7 +139,7 @@ def bs_upload_pdf(page, sCleanID, exportFolder) :
     for iCount in range(0, 91) : # moves the cursor
         page.get_by_text(f"Technology ID: {sCleanID}Sell").press("ArrowLeft")
     
-    for iCount in range (0, 28) : # highlights the text
+    for iCount in range (0, 29) : # highlights the text
         page.get_by_text(f"Technology ID: {sCleanID}Sell").press("Shift+ArrowLeft")
 
     # Uploads the PDF and links it
@@ -151,13 +151,16 @@ def bs_upload_pdf(page, sCleanID, exportFolder) :
     page.get_by_role("button", name="New").click()
     pdf_path = os.path.join(exportFolder, f"{sCleanID} Sell Sheet.pdf")
     page.get_by_role("textbox", name="Choose").set_input_files(pdf_path)
+    # page.locator('input[type="file"][data-choose="Choose"]').set_input_files(pdf_path) # this one worked on Wilson's MAC instead of the above line
     sleep(5)
     page.locator("form").filter(has_text=f"New Attachment: {sCleanID}-sell").locator("button[name=\"action-publish\"]").click()
+    # page.locator("form").filter(has_text=f"New Attachment").locator("button[name=\"action-publish\"]").click() # this one worked on Wilson's MAC instead of the above line
     sleep(5)
     page.get_by_text("Back", exact=True).click()
     sleep(3)
     firstNum, lastNum = sCleanID.split('-') # splits the sCleanID so I can get the last digits to be able to link it
     page.get_by_role("link", name=f"-{lastNum}-sell-sheet.pdf").first.click()
+    # page.locator(f'a:has-text("{sCleanID}-sell-sheet.pdf")').first.click() # this one worked on Wilson's MAC instead of the above line
     page.get_by_role("button", name="Save & Close").click()
 
 # Changes the YEAR TAG
